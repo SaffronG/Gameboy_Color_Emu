@@ -21,10 +21,10 @@ const C_REG_NUM: uszize = 8;
 //    NOTE: WX - 7 yields the X position, Edge cases occur at: n < 7
 #[repr(u8)]
 enum PpuMode {
-    H-Blank = 0,
-    V-Blank = 1,
-    Scan = 2,
-    Drawing = 3,
+    H-Blank = 0, // "Pads" the remainder of the scanline
+    V-Blank = 1, // V-blank but happens at the end of each scanline
+    Scan = 2, // Searches the OAM memory for sprites to render before they are drawn
+    Drawing = 3, // Transfers pixels to the LCD
 }
 
 pub struct Emu {
@@ -44,7 +44,11 @@ pub struct Emu {
 struct Ppu {
     oam: [u8; OAM_SIZE], // Object Attribute Memory $FE00-$FE9F
     dma: 
-    palette:
+    // Pixel properties:
+        // Color -> The color number (IGNORING the palette, from tile color)
+        // Palette -> Value between 0-7 (0BP0 / 0BP1)
+        // Sprite Priority -> Only relevant for sprits on the CGB
+        // Background Priority -> Only relevant for sprites, keeps the value of bit 7
     c_reg: [u8; C_REG_NUM],
 
 }
