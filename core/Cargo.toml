@@ -1,0 +1,6 @@
+[package]
+name = "Gameboy_Color_Emu"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
