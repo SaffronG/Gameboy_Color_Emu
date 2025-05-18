@@ -7,6 +7,6 @@ Tutorials used
 - [github.com/Hacktix/GBEDG/]
 
 GBC Instruction Set References
-- (gbdev.io/pandocs/CPU_Instruction_Set.html/)
-- (gbdev.io/gb-opcodes/optables/)
-- (https://rgbds.gbdev.io/docs/v0.9.2/gbz80.7)
+- https://gbdev.io/pandocs/CPU_Instruction_Set.html/
+- https://gbdev.io/gb-opcodes/optables/
+- https://rgbds.gbdev.io/docs/v0.9.2/gbz80.7
