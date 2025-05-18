@@ -9,4 +9,4 @@ Tutorials used
 GBC Instruction Set References
 - [gbdev.io/pandocs/CPU_Instruction_Set.html/]
 - [gbdev.io/gb-opcodes/optables/]
-- [rgbds.gbdev.io/docs/v0.9.2/gbz80/]
+- [(https://rgbds.gbdev.io/docs/v0.9.2/gbz80.7)]
