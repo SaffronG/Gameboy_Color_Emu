@@ -1,3 +1,5 @@
+use std::io::Read;
+
 pub const SCREEN_WIDTH: usize = 160;
 pub const SCREEN_HEIGHT: usize = 144;
 const WINDOW_SIZE: usize = 256;
@@ -188,10 +190,10 @@ struct Cartridge {
 
 impl Cartridge {
     fn read(&mut self, fname: String) -> std::io::Result<()> {
-        let std_fd = std::fs::File::open(fname)?;
+        let mut std_fd = std::fs::File::open(fname)?;
         match std_fd.read_to_end(&mut self.memory) {
             Ok(_) => Ok(()),
-            Err(e) => Err(()),
+            Err(e) => Err(e),
         }
     }
 }
