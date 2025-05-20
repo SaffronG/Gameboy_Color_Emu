@@ -156,11 +156,33 @@ impl Cpu {
             },
             0x07 => {
                 // RLCA
-
+                let mut reg = self.reg_8b[(op & r8_mask >> 3) as usize];
+                if (reg & 0x80) != 0 {
+                    // CARRY OUT
+                    reg <<= 1;
+                    self.carry = 1
+                } else {
+                    // NO CARRY OUT
+                    reg = (reg << 1) | 1;
+                    self.carry = 0
+                }
             },
             0x08 => {
                 // LD [a16], SP
+                // Copy SP & $a16 >> 8 at n16 + 1
+                let mut reg = as_u16(self.reg_16b[(op & r16_mask >> 4) as usize]);
+                reg &= self.sp;
+                let mut address = self.ram[self.pc.wrapping_add(1) as usize] as u16;
+                address &= (self.ram[self.pc.wrapping_add(1) as usize] as u16) << 8;
+                self.ram[address as usize] = (reg >> 8) as u8;
             },
+            0x09 => {
+                // ADD HL, BC
+                
+            },
+            0x0A => {
+                // LD, A, [BC]
+            }
             _ => todo!(),
        }
     }
