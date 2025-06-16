@@ -1,5 +1,5 @@
 # Gameboy_Color_Emu
-My attempt at creating a fully-functioning Gameboy Color Emulator
+My attempt at creating a fully-functioning Gameboy Color Emulator (WIP)
 
 Tutorials used
 - [hacktix.github.io/GBEDG/ppu/#the-basics/]
